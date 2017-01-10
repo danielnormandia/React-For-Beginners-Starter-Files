@@ -8,7 +8,7 @@ class Order extends React.Component {
     this.renderOrder = this.renderOrder.bind(this);
   }
 
-  renderOrder(key) {
+  renderOrder = (key) => {
     const fish = this.props.fishes[key];
     const count = this.props.order[key];
     const removeButton = <button onClick={() => this.props.removeFromOrder(key)}>&times;</button>
@@ -36,7 +36,7 @@ class Order extends React.Component {
       <span className="price">{formatPrice(count * fish.price)}</span>
     </li>
     )
-  }
+  };
 
 
   render() {
@@ -70,12 +70,12 @@ class Order extends React.Component {
       </div>
     )
   }
-}
 
-Order.propTypes = {
-  fishes: React.PropTypes.object.isRequired,
-  order: React.PropTypes.object.isRequired,
-  removeFromOrder: React.PropTypes.func.isRequired
+  static propTypes = {
+    fishes: React.PropTypes.object.isRequired,
+    order: React.PropTypes.object.isRequired,
+    removeFromOrder: React.PropTypes.func.isRequired
+  }
 }
 
 export default Order;
